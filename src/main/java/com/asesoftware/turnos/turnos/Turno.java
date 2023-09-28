@@ -20,6 +20,7 @@ import java.util.Date;
                 name = "CREAR_TURNOS_POR_SERVICIO",
                 procedureName = "SYSTEM.CREAR_TURNOS_POR_SERVICIO",
                 parameters = {
+                        //configuramos nuestros parametros de entradas y salidas para el pocedimiento
                         @StoredProcedureParameter(mode=ParameterMode.IN, name="FECHA_INICIO_IN", type=Date.class),
                         @StoredProcedureParameter(mode=ParameterMode.IN, name="FECHA_FIN_IN", type=Date.class),
                         @StoredProcedureParameter(mode=ParameterMode.IN, name="ID_SERVICIO_IN", type=Long.class),
@@ -28,6 +29,7 @@ import java.util.Date;
 })
 public class Turno {
 
+    //Mapeamos las tablas para la base de datos
     @Id
     @SequenceGenerator(name="TURNOS_SEQUENCE", sequenceName="TURNOS_SEQUENCE", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TURNOS_SEQUENCE")
@@ -47,6 +49,7 @@ public class Turno {
     @Column(name = "estado", nullable = false)
     private String estado;
 
+    //Indicamos que hay una relacion de muchos a uno y traemos el id_servicios como llave foranea a turnos
     @ManyToOne()
     @JoinColumn(name = "id_servicio")
     private Servicio servicio;

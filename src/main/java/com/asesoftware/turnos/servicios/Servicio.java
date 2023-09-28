@@ -16,6 +16,7 @@ import java.util.List;
 @Table(name = "servicios")
 public class Servicio {
 
+    //Mapeamos las tablas para la base de datos
     @Id
     @SequenceGenerator(name="SERVICIOS_SEQUENCE", sequenceName="SERVICIOS_SEQUENCE", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SERVICIOS_SEQUENCE")
@@ -33,7 +34,6 @@ public class Servicio {
 
     @Column(name = "duracion", nullable = false)
     private String duracion;
-
 
 
 }

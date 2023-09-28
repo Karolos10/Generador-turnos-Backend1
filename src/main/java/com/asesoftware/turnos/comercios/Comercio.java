@@ -16,6 +16,8 @@ import java.util.List;
 @Table(name = "comercios")
 public class Comercio {
 
+
+    //Mapeamos las tablas para la base de datos
     @Id
     @SequenceGenerator(name="COMERCIOS_SEQUENCE", sequenceName="COMERCIOS_SEQUENCE", allocationSize=1)
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="COMERCIOS_SEQUENCE")
@@ -28,6 +30,7 @@ public class Comercio {
     @Column(name = "aforo_maximo", nullable = false)
     private Long aforoMaximo;
 
+    //Indicamos que hay una relacion de uno a muchos y traemos el id_servicios como llave foranea a comercios
     @OneToMany
     @JoinColumn(name = "id_comercio")
     private List<Servicio> servicios;
